@@ -1,9 +1,9 @@
 import js from "@eslint/js";
+import { defineConfig } from "eslint/config";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
 import globals from "globals";
 import tseslint from "typescript-eslint";
-import { defineConfig } from "eslint/config";
-import esLintConfigPrettier from "eslint-config-prettier/flat";
-import simpleImportSort from "eslint-plugin-simple-import-sort";
 
 export default defineConfig([
   {
@@ -13,7 +13,7 @@ export default defineConfig([
     languageOptions: { globals: globals.node },
   },
   tseslint.configs.recommended,
-  esLintConfigPrettier,
+  eslintConfigPrettier,
   {
     plugins: {
       "simple-import-sort": simpleImportSort,
