@@ -1,6 +1,6 @@
+import { NotFoundError } from "../errors/index.js";
 import { WeekDay } from "../generated/prisma/enums.js";
 import { prisma } from "../lib/db.js";
-import { NotFoundError } from "../errors/index.js";
 
 interface Dto {
   userId: string;
@@ -38,6 +38,7 @@ export class CreateWorkoutPlan {
 
       const workoutPlan = await tx.workoutPlan.create({
         data: {
+          id: crypto.randomUUID(),
           name: dto.name,
           userId: dto.userId,
           isActive: true,
